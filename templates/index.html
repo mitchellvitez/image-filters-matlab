@@ -62,7 +62,7 @@ img {
     
     <div class="box">
     <h2>2. Select Filter</h2>
-    <p>Please note that filter application make take some time as we have to boot up Matlab, run our image transformations, and apply them to your image. Transparency will be removed. If the image hasn't fully loaded, please refresh the page.</p>
+    <p>Please note that filter application may take some time as we have to boot up Matlab, run our image transformations, and apply them to your image. Transparency will be removed. If the image hasn't fully loaded, please refresh the page.</p>
     <form action="apply" method="post">
         {% for filter in filters %}
         <input type="radio" name="filter" value="{{ filter }}" checked>{{filter}}</input> <a href="source/{{filter}}">View Source Code</a>
