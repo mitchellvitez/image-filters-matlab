@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import random
 import time
 import glob
@@ -24,6 +24,10 @@ def upload():
 
 def bash_command(cmd):
     subprocess.Popen(['/bin/bash', '-c', cmd])
+
+@app.route('/source/<filter_name>')
+def source(filter_name):
+    return send_file('filters/{}.m'.format(filter_name), mimetype='text/text')
 
 @app.route('/apply', methods=['GET', 'POST'])
 def apply():
