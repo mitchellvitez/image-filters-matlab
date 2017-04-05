@@ -48,6 +48,9 @@ input {
 img {
     max-width: 49%;
 }
+.filter {
+    padding: 10px;
+}
 </style>
 
     <h1>Image Filters</h1>
@@ -65,7 +68,9 @@ img {
     <p>Please note that filter application may take some time as we have to boot up Matlab, run our image transformations, and apply them to your image. Transparency will be removed. If the image hasn't fully loaded, please refresh the page.</p>
     <form action="apply" method="post">
         {% for filter in filters %}
-        <input type="radio" name="filter" value="{{ filter }}" checked>{{filter}}</input> <a href="source/{{filter}}">View Source Code</a>
+        <div class="filter">
+            <input type="radio" name="filter" value="{{ filter }}" checked>{{filter}}</input> <a href="source/{{filter}}">View Source Code</a>
+        </div>
         {% endfor %}
         <br>
         <input type="submit" name="submit" value="Apply">
