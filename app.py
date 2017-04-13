@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file
-import random
-import time
 import glob
-import subprocess
 import os
+import random
+import subprocess
+import time
+from flask import Flask, render_template, request, redirect, url_for, send_file
 
 MATLAB = '/Applications/MATLAB_R2016b.app/bin/matlab -nodesktop -nosplash'
 
@@ -18,7 +18,7 @@ def main():
 def upload():
     file = request.files['image']
     file.save('static/images/in')
-    if os.path.exists('static/images/out.png'): 
+    if os.path.exists('static/images/out.png'):
         os.remove('static/images/out.png')
     return redirect(url_for('main'))
 
@@ -33,10 +33,10 @@ def source(filter_name):
 def apply():
     if request.method == 'POST':
         filter_name = request.form['filter']
-        if os.path.exists('static/images/out.png'): 
+        if os.path.exists('static/images/out.png'):
             os.remove('static/images/out.png')
         bash_command('cat "filters/{}.m" | {}'.format(filter_name, MATLAB))
-    if os.path.exists('static/images/out.png'): 
+    if os.path.exists('static/images/out.png'):
         time.sleep(3)
         return redirect(url_for('main'))
     else:
@@ -44,5 +44,4 @@ def apply():
         return redirect(url_for('apply'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    app.run()
