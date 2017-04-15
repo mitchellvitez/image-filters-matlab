@@ -33,8 +33,11 @@ def source(filter_name):
 def apply():
     if request.method == 'POST':
         filter_name = request.form['filter']
+        parameter = request.form['parameter']
         if os.path.exists('static/images/out.png'):
             os.remove('static/images/out.png')
+        with open('static/number.txt', 'w') as f:
+            f.write(str(parameter))
         bash_command('cat "filters/{}.m" | {}'.format(filter_name, MATLAB))
     if os.path.exists('static/images/out.png'):
         time.sleep(3)
