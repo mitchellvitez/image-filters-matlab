@@ -70,9 +70,6 @@ img {
         {% for filter in filters %}
         <div class="filter">
             <input type="radio" name="filter" value="{{ filter }}" checked>{{filter}}</input> 
-            {% if filter == "Gaussian Blur" %}
-            <input type="number" name="parameter" placeholder="parameter" value="0"></input>
-            {% endif %}
             <a href="source/{{filter}}">View Source Code</a>
         </div>
         {% endfor %}

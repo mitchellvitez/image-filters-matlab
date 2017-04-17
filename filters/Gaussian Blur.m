@@ -33,5 +33,4 @@ for k = [1 2 3]
 end
 %Image without Noise after Gaussian blur
 
-imwrite(O, 'static/images/out.png');
-figure,imshow(Output);
+imwrite(Output, 'static/images/out.png');
