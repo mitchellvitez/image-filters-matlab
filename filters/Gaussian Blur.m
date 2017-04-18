@@ -3,7 +3,7 @@ Img = imread('static/images/in');
 I = double(Img); 
 
 %Standard Deviation, controls degree of blurring
-sigma = 10;
+sigma = 1;
 %Window size
 siz = floor(sigma * 3);
 [x,y]=meshgrid(-siz:siz,-siz:siz);
